@@ -7,31 +7,89 @@
 //
 
 #import "LoginViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
+#import "GXTabbarController.h"
 
 @interface LoginViewController ()
+
+@property (nonatomic, strong) AVPlayerLayer * loginPlayLayer;
+@property (nonatomic, strong) AVPlayer * loginPlay;
+@property (nonatomic, strong) UIButton * loginBtn;
 
 @end
 
 @implementation LoginViewController
+- (UIButton *)loginBtn
+{
+    if (!_loginBtn) {
+        _loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _loginBtn.frame = CGRectMake(100, 200, 100, 30);
+        _loginBtn.backgroundColor = [UIColor orangeColor];
+        [_loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [_loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    }
+    return _loginBtn;
+}
+- (AVPlayerLayer *)loginPlayLayer
+{
+    if (!_loginPlayLayer) {
 
+        NSString *path = arc4random_uniform(10) % 2 ? @"login_video" : @"loginmovie";
+        
+        NSURL * sourceMovieUrl    = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:path ofType:@"mp4"]];
+        AVAsset * movieAsset      = [AVURLAsset URLAssetWithURL:sourceMovieUrl options:nil];
+        AVPlayerItem * playerItem = [AVPlayerItem playerItemWithAsset:movieAsset];
+        
+        _loginPlay                   = [AVPlayer playerWithPlayerItem:playerItem];
+        _loginPlayLayer              = [AVPlayerLayer playerLayerWithPlayer:_loginPlay];
+        _loginPlayLayer.frame        = self.view.bounds;
+        _loginPlayLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        
+    }
+    return _loginPlayLayer;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [_loginPlay pause];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    _loginPlayLayer = nil;
+    _loginPlay      = nil;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [self initObserver];
+    
+    [self setupPlayer];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)loginBtnClick
+{
+    UIWindow * mainWindow = [UIApplication sharedApplication].keyWindow;
+    mainWindow.rootViewController = [[GXTabbarController alloc]init];
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 播放结束监听
+- (void)initObserver
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinish:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
-*/
-
+- (void)didFinish:(NSNotification *)notification
+{
+    //重复播放
+    AVPlayerItem * p = [notification object];
+    [p seekToTime:kCMTimeZero];
+    [_loginPlay play];
+}
+#pragma mark - 设置播放界面
+- (void)setupPlayer
+{
+    [self.view.layer addSublayer:self.loginPlayLayer];
+    [_loginPlay play];
+    [self.view addSubview:self.loginBtn];
+}
 @end

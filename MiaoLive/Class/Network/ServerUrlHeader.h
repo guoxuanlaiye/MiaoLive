@@ -9,5 +9,7 @@
 #ifndef ServerUrlHeader_h
 #define ServerUrlHeader_h
 
+#define Home_HotList @"http://live.9158.com/Fans/GetHotLive"
+
 
 #endif /* ServerUrlHeader_h */

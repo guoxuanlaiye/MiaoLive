@@ -7,6 +7,7 @@
 //
 
 #import "GXNetworkController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface GXNetworkController ()
 
@@ -16,22 +17,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
+- (void)loadDataUrl:(NSString *)url networkType:(AFNetworkType)type params:(NSMutableDictionary *)paramsDict successBlock:(void (^)(NSDictionary *))result failureBlock:(void (^)(NSError *))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/html",@"text/javascript", nil];
+    
+    if (type == AFNetworkTypeGET) {
+        
+        [manager GET:url parameters:paramsDict progress:^(NSProgress * _Nonnull downloadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            if (result) {
+                result(responseObject);
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+        
+    } else {
+        
+        [manager POST:url parameters:paramsDict progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            if (result) {
+                result(responseObject);
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            if (failure) {
+                failure(error);
+            }
+        }];
+        
+    }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

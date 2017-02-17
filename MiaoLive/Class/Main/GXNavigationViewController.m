@@ -7,9 +7,8 @@
 //
 
 #import "GXNavigationViewController.h"
-#import "UIBarButtonItem+Extension.h"
-#import "UINavigationBar+Category.h"
-#import "CommonHeader.h"
+//#import "UIBarButtonItem+Extension.h"
+//#import "UINavigationBar+Category.h"
 @interface GXNavigationViewController ()<UIGestureRecognizerDelegate>
 
 @end
@@ -37,8 +36,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackImg_white"] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19.0f],NSForegroundColorAttributeName:RGBA_COLOR(70, 70, 70, 1)}];
+//    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBackImg_white"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19.0f],NSForegroundColorAttributeName:RGBA_COLOR(70, 70, 70, 1)}];
     
     self.interactivePopGestureRecognizer.delegate = self;
 
@@ -67,9 +66,8 @@
 //        
 //        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backButton];
         
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem creatItemWithTarget:self action:@selector(backBtnClick) backgroundImage:@"fanhui_hui" selectedBackgroundImage:@"fanhui_hui"];
+//        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem creatItemWithTarget:self action:@selector(backBtnClick) backgroundImage:@"fanhui_hui" selectedBackgroundImage:@"fanhui_hui"];
 
-//        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem creatItemWithTarget:self action:@selector(backBtnClick) backgroundImage:@"nav_more" selectedBackgroundImage:@"nav_more"];
         
     }
     [super pushViewController:viewController animated:animated];
@@ -79,8 +77,5 @@
 {
     [self popViewControllerAnimated:YES];
 }
-//- (void)moreBtnClick
-//{
-//    [self popToRootViewControllerAnimated:YES];
-//}
+
 @end

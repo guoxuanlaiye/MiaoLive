@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeHotListSmallViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="157" height="158"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="157" height="158"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="7MS-ue-ypr">
+                        <rect key="frame" x="0.0" y="0.0" width="157" height="158"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l77-dx-JOf">
+                        <rect key="frame" x="8" y="8" width="46" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="妖族"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-X9-KhU">
+                        <rect key="frame" x="111" y="138.5" width="41" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="璀璨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yy-gp-02d">
+                        <rect key="frame" x="10" y="113.5" width="137" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl_star1_40x19" translatesAutoresizingMaskIntoConstraints="NO" id="cfw-1A-myQ">
+                        <rect key="frame" x="10" y="138" width="34" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="34" id="HKK-8h-2Ae"/>
+                            <constraint firstAttribute="height" constant="15" id="JwV-Y2-SgC"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="7MS-ue-ypr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0lG-dZ-8TJ"/>
+                <constraint firstAttribute="bottom" secondItem="ea2-X9-KhU" secondAttribute="bottom" constant="5" id="1FN-Oe-1vw"/>
+                <constraint firstAttribute="trailing" secondItem="7MS-ue-ypr" secondAttribute="trailing" id="Fib-qC-AUm"/>
+                <constraint firstAttribute="bottom" secondItem="7MS-ue-ypr" secondAttribute="bottom" id="JGn-Zy-YNX"/>
+                <constraint firstAttribute="bottom" secondItem="cfw-1A-myQ" secondAttribute="bottom" constant="5" id="Kep-Ub-qgW"/>
+                <constraint firstAttribute="bottom" secondItem="1Yy-gp-02d" secondAttribute="bottom" constant="30" id="LhW-wF-5nj"/>
+                <constraint firstAttribute="trailing" secondItem="ea2-X9-KhU" secondAttribute="trailing" constant="5" id="MFm-OI-i1J"/>
+                <constraint firstAttribute="trailing" secondItem="1Yy-gp-02d" secondAttribute="trailing" constant="10" id="REj-Ei-7F2"/>
+                <constraint firstItem="cfw-1A-myQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="h7n-pq-Jny"/>
+                <constraint firstItem="1Yy-gp-02d" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="r1z-yl-28v"/>
+                <constraint firstItem="7MS-ue-ypr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zBC-E2-Aqe"/>
+            </constraints>
+            <size key="customSize" width="157" height="158"/>
+            <connections>
+                <outlet property="allNumLab" destination="ea2-X9-KhU" id="wBe-n1-QWu"/>
+                <outlet property="bgPicImgV" destination="7MS-ue-ypr" id="nF3-gT-0k2"/>
+                <outlet property="familyNameBtn" destination="l77-dx-JOf" id="dUH-BK-gFG"/>
+                <outlet property="nickNameLab" destination="1Yy-gp-02d" id="0N5-aS-5Ol"/>
+                <outlet property="starLevelImgV" destination="cfw-1A-myQ" id="k3J-xO-nIJ"/>
+            </connections>
+            <point key="canvasLocation" x="-986" y="-254"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="girl_star1_40x19" width="40" height="19"/>
+        <image name="img" width="125" height="125"/>
+    </resources>
+</document>

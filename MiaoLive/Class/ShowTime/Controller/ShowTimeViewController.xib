@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowTimeViewController">
+            <connections>
+                <outlet property="liveStatusLab" destination="9XT-Wb-pQq" id="ABA-vk-YY7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvH-9k-jry">
+                    <rect key="frame" x="324" y="40" width="31" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="关闭">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="closeBtnClick:" destination="-1" eventType="touchUpInside" id="s7R-AO-POl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOH-xs-mXY">
+                    <rect key="frame" x="20" y="40" width="108" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="智能美颜已开启">
+                        <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="beautyBtnClick:" destination="-1" eventType="touchUpInside" id="z5s-ay-Qvj"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrX-Zz-rpq">
+                    <rect key="frame" x="40" y="447" width="295" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="tg8-d5-EUo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="开始直播"/>
+                    <state key="selected" title="结束直播"/>
+                    <connections>
+                        <action selector="beginLivingBtnClick:" destination="-1" eventType="touchUpInside" id="okQ-F8-h0w"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLp-p4-Xb7">
+                    <rect key="frame" x="207" y="40" width="62" height="30"/>
+                    <color key="backgroundColor" red="0.76078431369999999" green="0.63921568630000003" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="切换镜头">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="changeCameraBtnClick:" destination="-1" eventType="touchUpInside" id="vRE-ax-eFT"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XT-Wb-pQq">
+                    <rect key="frame" x="0.0" y="100" width="375" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="RvH-9k-jry" firstAttribute="leading" secondItem="dLp-p4-Xb7" secondAttribute="trailing" constant="55" id="1uK-fJ-hh5"/>
+                <constraint firstItem="RvH-9k-jry" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="50S-Pk-wwB"/>
+                <constraint firstAttribute="trailing" secondItem="RvH-9k-jry" secondAttribute="trailing" constant="20" id="7dA-Sq-d6b"/>
+                <constraint firstItem="9XT-Wb-pQq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="BdQ-kE-0MQ"/>
+                <constraint firstItem="dLp-p4-Xb7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="FTt-8e-94s"/>
+                <constraint firstItem="IOH-xs-mXY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="G5m-HK-VAh"/>
+                <constraint firstItem="IOH-xs-mXY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="Rni-Em-Ll6"/>
+                <constraint firstAttribute="bottom" secondItem="IrX-Zz-rpq" secondAttribute="bottom" constant="180" id="Y6v-j6-a9H"/>
+                <constraint firstAttribute="trailing" secondItem="9XT-Wb-pQq" secondAttribute="trailing" id="afL-lu-ylf"/>
+                <constraint firstAttribute="trailing" secondItem="IrX-Zz-rpq" secondAttribute="trailing" constant="40" id="cmm-cw-bBH"/>
+                <constraint firstItem="9XT-Wb-pQq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vGr-Uw-AyX"/>
+                <constraint firstItem="IrX-Zz-rpq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="xw5-9p-xex"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="-720" y="-54"/>
+        </view>
+    </objects>
+</document>
